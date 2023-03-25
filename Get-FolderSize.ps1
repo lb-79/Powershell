@@ -6,7 +6,7 @@ function Get-FolderSize
     )
 
     $dataColl = @()
-    gci -force $Path -Directory -ErrorAction SilentlyContinue | ForEach-Object { #Get all Directories and for each of them...
+    Get-ChildItem -force $Path -Directory -ErrorAction SilentlyContinue | ForEach-Object { #Get all Directories and for each of them...
         $len = 0 #Running Total Size
         gci -recurse -force $_.fullname -ErrorAction SilentlyContinue | ForEach-Object { $len += $_.length } #Go in subdirectories and update the running total size.
         $foldername = $_.fullname #Get the fullname of the folder
