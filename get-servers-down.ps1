@@ -1,0 +1,1 @@
+Get-Content C:\lab\git\powershell\servers.txt | Where-Object {!(Test-Connection -ComputerName $_ -Count 2 -Quiet)} 
